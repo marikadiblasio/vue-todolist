@@ -38,6 +38,7 @@ createApp(
                 ],
                 newTxt: '',
                 emptyTxt: false,
+                numTodo: 1
             }
         },
         methods : {
@@ -47,25 +48,19 @@ createApp(
             addItem() {
                 if (this.newTxt.length < 2){
                     this.emptyTxt = true;
-                    console.log(emptyTxt);
-                    console.log(this.newTxt);
+                    this.newTxt = '';
                     return
                 }
+                //const txt = this.todos[i].text;
                 const newTodo = {
                     text: this.newTxt,
+                    //text: txt != this.newTxt ? this.newTxt : this.NewTxt + ++numTodo,
                     done: false
                 }
                 this.todos.push(newTodo);
                 this.newTxt = '',
                 this.emptyTxt = false;
             }
-            //toggleDone(index){
-                // if (this.todos[index].done){
-                //     this.todos[index].done=false
-                // } else {
-                //     this.todos[index].done=true
-                // }
-            //}
         }
     }
 ).mount('#app');
