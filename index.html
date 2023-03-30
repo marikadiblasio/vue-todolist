@@ -12,17 +12,21 @@
 </head>
 <body class="bg-warning-subtle">
     <div id="app">
+
+        <div class="container w-50 bg-info-subtle rounded">
+            <h1 class="my-3">What a busy day!</h1>
+            <!-- MILESTONE 3 -->
+            <!-- Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti. -->
+            <div class="d-flex mb-3">
+                <input class="me-3 form-control" type="text" name="item" id="item" v-model="newTxt" @keyup.enter="addItem">
+                <button @click="addItem" class="btn btn-info">Aggiungi</button>
+            </div>
         <!-- MILESTONE 1 -->
         <!-- Stampare all'interno di una lista HTML un item per ogni todo.   -->
-        <div class="container w-50 bg-info-subtle rounded">
-            <h1 class="my-3">To Do List</h1>
-            <div class="d-flex mb-3">
-                <input class="me-3 form-control" type="text" name="item" id="item">
-                <button class="btn btn-info">Aggiungi</button>
-            </div>
+            <h3 class="w-75 mx-auto">To do list</h3>
             <ul class="w-75 mx-auto">
                 <li class="mb-3 d-flex justify-content-between" v-for="todo, index in todos" :keys="index">
-                    <span :class="{'text-decoration-line-through': todo.done}">{{todo.text}}</span>
+                    <span @click="todo.done ? todo.done = false : todo.done = true" :class="{'text-decoration-line-through': todo.done}">{{todo.text}}</span>
                     <button @click="removeItem(index)" class="btn btn-outline-danger">&cross;</button>
                 </li>
             </ul>

@@ -27,7 +27,7 @@ createApp(
                         done: false
                     },
                     {
-                        text: 'comprare la mozzarella',
+                        text: 'comprare il regalo per Laura',
                         done: true
                     },
                     {
@@ -35,13 +35,30 @@ createApp(
                         done: false
                     }
 
-                ]
+                ],
+                newTxt: '',
+
             }
         },
         methods : {
             removeItem(index){
                 this.todos.splice(index, 1);
-            }
+            },
+            addItem() {
+                const newTodo = {
+                    text: this.newTxt,
+                    done: false
+                }
+                this.todos.push(newTodo);
+                this.newTxt = ''
+            },
+            //toggleDone(index){
+                // if (this.todos[index].done){
+                //     this.todos[index].done=false
+                // } else {
+                //     this.todos[index].done=true
+                // }
+            //}
         },
         mounted(){
 
