@@ -37,7 +37,7 @@ createApp(
 
                 ],
                 newTxt: '',
-
+                emptyTxt: false,
             }
         },
         methods : {
@@ -45,13 +45,20 @@ createApp(
                 this.todos.splice(index, 1);
             },
             addItem() {
+                if (this.newTxt.length < 2){
+                    this.emptyTxt = true;
+                    console.log(emptyTxt);
+                    console.log(this.newTxt);
+                    return
+                }
                 const newTodo = {
                     text: this.newTxt,
                     done: false
                 }
                 this.todos.push(newTodo);
-                this.newTxt = ''
-            },
+                this.newTxt = '',
+                this.emptyTxt = false;
+            }
             //toggleDone(index){
                 // if (this.todos[index].done){
                 //     this.todos[index].done=false
@@ -59,9 +66,6 @@ createApp(
                 //     this.todos[index].done=true
                 // }
             //}
-        },
-        mounted(){
-
         }
     }
 ).mount('#app');

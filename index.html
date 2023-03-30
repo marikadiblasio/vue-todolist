@@ -21,6 +21,7 @@
                 <input class="me-3 form-control" type="text" name="item" id="item" v-model="newTxt" @keyup.enter="addItem">
                 <button @click="addItem" class="btn btn-info">Aggiungi</button>
             </div>
+            <div v-if="emptyTxt" class="alert alert-danger">Inserire una parola di almeno 3 lettere</div>
         <!-- MILESTONE 1 -->
         <!-- Stampare all'interno di una lista HTML un item per ogni todo.   -->
             <h3 class="w-75 mx-auto">To do list</h3>
