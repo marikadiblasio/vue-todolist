@@ -21,11 +21,27 @@ createApp(
     {
         data(){
             return {
+                todos: [
+                    {
+                        text: 'comprare il pane',
+                        done: false
+                    },
+                    {
+                        text: 'comprare la mozzarella',
+                        done: true
+                    },
+                    {
+                        text: 'portare i vestiti in lavanderia',
+                        done: false
+                    }
 
+                ]
             }
         },
         methods : {
-
+            removeItem(index){
+                this.todos.splice(index, 1);
+            }
         },
         mounted(){
 
