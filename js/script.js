@@ -24,7 +24,7 @@ createApp(
                 todos: [
                     {
                         text: 'comprare il pane',
-                        done: false
+                        done: false,
                     },
                     {
                         text: 'comprare il regalo per Laura',
@@ -38,7 +38,8 @@ createApp(
                 ],
                 newTxt: '',
                 emptyTxt: false,
-                numTodo: 1
+                newTodo: {},
+                alreadyThere: false
             }
         },
         methods : {
@@ -51,16 +52,22 @@ createApp(
                     this.newTxt = '';
                     return
                 }
-                //const txt = this.todos[i].text;
-                const newTodo = {
+                this.newTodo = {
                     text: this.newTxt,
-                    //text: txt != this.newTxt ? this.newTxt : this.NewTxt + ++numTodo,
                     done: false
                 }
-                this.todos.push(newTodo);
+                for (let i = 0; i < this.todos.length; i++){
+                    console.log(this.todos[i]);
+                    if (this.todos[i].text === this.newTodo.text){
+                        console.log('sono uguali');
+                        this.alreadyThere = true;
+                        return
+                    }}
+                    this.todos.push(this.newTodo);
                 this.newTxt = '',
                 this.emptyTxt = false;
-            }
+                this.alreadyThere = false;
+            },
         }
     }
 ).mount('#app');
